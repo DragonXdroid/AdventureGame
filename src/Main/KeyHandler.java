@@ -1,3 +1,5 @@
+package Main;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -35,18 +37,18 @@ public class KeyHandler implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
 
-        int keyPressed = e.getKeyCode();
+        int keyReleased = e.getKeyCode();
 
-        if(keyPressed==KeyEvent.VK_W){
+        if(keyReleased==KeyEvent.VK_W){
             upPressed=false;
         }
-        if(keyPressed==KeyEvent.VK_A){
+        if(keyReleased==KeyEvent.VK_A){
             leftPressed=false;
         }
-        if(keyPressed==KeyEvent.VK_S){
+        if(keyReleased==KeyEvent.VK_S){
             downPressed=false;
         }
-        if(keyPressed==KeyEvent.VK_D){
+        if(keyReleased==KeyEvent.VK_D){
             rightPressed=false;
         }
     }
