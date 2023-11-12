@@ -1,7 +1,8 @@
-package Main;
+package com.AdventureGame;
+
+import com.AdventureGame.Maps.Map1;
 
 import javax.swing.*;
-import java.io.File;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,7 +10,7 @@ public class Main {
         JFrame gameWindow = new JFrame();
         gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gameWindow.setResizable(false);
-        gameWindow.setTitle("fffe");
+        gameWindow.setTitle("AdventureGame");
 
         var gamePanel = new GamePanel();
         gameWindow.add(gamePanel);
@@ -22,6 +23,5 @@ public class Main {
 
 
         gamePanel.startGameThread();
-
     }
 }

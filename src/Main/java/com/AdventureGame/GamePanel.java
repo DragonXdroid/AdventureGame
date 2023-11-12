@@ -1,6 +1,6 @@
-package Main;
+package com.AdventureGame;
 
-import Entity.Player;
+import com.AdventureGame.Entity.Player;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,6 +19,7 @@ public class GamePanel extends JPanel implements Runnable {
     private Thread gameThread;
     private KeyHandler keyHandler;
     private Player player;
+    private MapManager mapManager;
 
     private int FPS = 60;
 
@@ -32,7 +33,7 @@ public class GamePanel extends JPanel implements Runnable {
         keyHandler = new KeyHandler();
         this.player = new Player(this,keyHandler);
         this.addKeyListener(player.getKeyHandler());
-
+        this.mapManager = new MapManager(this,player);
     }
 
     public void startGameThread(){
@@ -86,9 +87,11 @@ public class GamePanel extends JPanel implements Runnable {
     public void paintComponent(Graphics graphics){
         super.paintComponent(graphics);
         Graphics2D graphics2D = (Graphics2D)graphics;
-        player.draw(graphics2D);
-        graphics2D.dispose();
 
+        mapManager.draw(graphics2D);
+        player.draw(graphics2D);
+
+        graphics2D.dispose();
     }
 
     public int getTileSize(){
@@ -99,4 +102,23 @@ public class GamePanel extends JPanel implements Runnable {
         return scale;
     }
 
+    public int getScreenCol() {
+        return screenCol;
+    }
+
+    public int getScreenRow() {
+        return screenRow;
+    }
+
+    public int getScreenWidth() {
+        return screenWidth;
+    }
+
+    public int getScreenHeight() {
+        return screenHeight;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
 }

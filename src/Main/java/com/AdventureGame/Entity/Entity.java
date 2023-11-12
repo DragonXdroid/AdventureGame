@@ -1,4 +1,4 @@
-package Entity;
+package com.AdventureGame.Entity;
 
 import java.awt.image.BufferedImage;
 import java.util.List;
@@ -6,9 +6,8 @@ import java.util.List;
 public class Entity {
 
     private int speed;
-
-    private int XPosition;
-    private int YPosition;
+    private int worldXPosition;
+    private int worldYPosition;
 
     private boolean isIdle = true;
     private int spriteCounter = 0;
@@ -28,20 +27,20 @@ public class Entity {
         this.speed = speed;
     }
 
-    public int getXPosition() {
-        return XPosition;
+    public int getWorldXPosition() {
+        return worldXPosition;
     }
 
-    public void setXPosition(int XPosition) {
-        this.XPosition = XPosition;
+    public void setWorldXPosition(int worldXPosition) {
+        this.worldXPosition = worldXPosition;
     }
 
-    public int getYPosition() {
-        return YPosition;
+    public int getWorldYPosition() {
+        return worldYPosition;
     }
 
-    public void setYPosition(int YPosition) {
-        this.YPosition = YPosition;
+    public void setWorldYPosition(int worldYPosition) {
+        this.worldYPosition = worldYPosition;
     }
 
     public void setUpAnimation(List<BufferedImage> upAnimation) {

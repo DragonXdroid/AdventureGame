@@ -1,0 +1,27 @@
+Game loop
+
+This loops forever, and stops when the game is finished. We do all our math and drawing in here. This allows us to
+continually update game state based on player inputs and AI among other things, then allow us to update the screen to
+reflect the new game state. Doing this over and over again is the same as showing multiple pictures to create a movie.
+
+Why we need to limit the loop
+
+If we just let the loop go as fast as the computer can do it, It will not be consistent. When the computer is doing
+less, it can put more power to the game loop, and it will run faster. Otherwise it runs slower. This is undesirable
+for a user trying to input information and have a predictible result. As well, since each computer is different, each
+computer will run your games at different speeds.
+
+how to limit the loop
+
+The simplest way to limit your game loop so it is at a constant speed, is to have it wait until a certain amount of time
+ has elapsed before looping over again. For instance, finish the loop, then wait until the time for this loop has
+ reached 1/60th of a second (60fps), before continuing. This works great until you run on a slow machine where the loop
+ takes longer then you wanted to wait. :/
+
+Where delta time (dt) comes in
+
+We can get around the last issue with dt. If you have an animation (Say a bullet going across the screen), and you want
+it to reach the end of the screen at the same time on all machines, slow and fast, You can calculate how much distance
+it should have traveled based on how much time has elapsed. Say the bullet speed is 100 pixels in 1 second, then the
+distance traveled (difference of distance, or dd) is the speed * dt. (100pps * how much time has passed).
+

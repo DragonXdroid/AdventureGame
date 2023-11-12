@@ -1,4 +1,4 @@
-package Main;
+package com.AdventureGame;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
