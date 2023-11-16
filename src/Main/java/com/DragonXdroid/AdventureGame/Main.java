@@ -1,6 +1,4 @@
-package com.AdventureGame;
-
-import com.AdventureGame.Maps.Map1;
+package com.DragonXdroid.AdventureGame;
 
 import javax.swing.*;
 
@@ -19,6 +17,7 @@ public class Main {
 
         gameWindow.setLocationRelativeTo(null);
         gameWindow.setVisible(true);
+
 
 
 

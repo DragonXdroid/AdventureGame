@@ -25,3 +25,8 @@ it to reach the end of the screen at the same time on all machines, slow and fas
 it should have traveled based on how much time has elapsed. Say the bullet speed is 100 pixels in 1 second, then the
 distance traveled (difference of distance, or dd) is the speed * dt. (100pps * how much time has passed).
 
+This is the same for any animation. If you want to move a character 100 pixels in 1 second, you can calculate how much
+to move it based on how much time has passed. This is the same for any animation, and is the basis for all animation
+in games.
+
+

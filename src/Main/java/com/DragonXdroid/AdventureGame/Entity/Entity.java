@@ -1,7 +1,9 @@
-package com.AdventureGame.Entity;
+package com.DragonXdroid.AdventureGame.Entity;
 
 import java.awt.image.BufferedImage;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Entity {
 
@@ -13,11 +15,7 @@ public class Entity {
     private int spriteCounter = 0;
     private int spriteNumber = 0;
 
-    private List<BufferedImage> upAnimation;
-    private List<BufferedImage> downAnimation;
-    private List<BufferedImage> rightAnimation;
-    private List<BufferedImage> leftAnimation;
-
+    private Map<String, List<BufferedImage>> animations = new HashMap<>();
 
     public int getSpeed() {
         return speed;
@@ -43,36 +41,8 @@ public class Entity {
         this.worldYPosition = worldYPosition;
     }
 
-    public void setUpAnimation(List<BufferedImage> upAnimation) {
-        this.upAnimation = upAnimation;
-    }
-
-    public void setDownAnimation(List<BufferedImage> downAnimation) {
-        this.downAnimation = downAnimation;
-    }
-
-    public void setRightAnimation(List<BufferedImage> rightAnimation) {
-        this.rightAnimation = rightAnimation;
-    }
-
-    public void setLeftAnimation(List<BufferedImage> leftAnimation) {
-        this.leftAnimation = leftAnimation;
-    }
-
-    public List<BufferedImage> getUpAnimation() {
-        return upAnimation;
-    }
-
-    public List<BufferedImage> getDownAnimation() {
-        return downAnimation;
-    }
-
-    public List<BufferedImage> getRightAnimation() {
-        return rightAnimation;
-    }
-
-    public List<BufferedImage> getLeftAnimation() {
-        return leftAnimation;
+    public Map<String, List<BufferedImage>> getAnimations() {
+        return animations;
     }
 
     public int getSpriteCounter() {
