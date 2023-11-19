@@ -2,6 +2,7 @@ package com.DragonXdroid.AdventureGame.Tiles;
 
 import com.DragonXdroid.AdventureGame.GamePanel;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Tile {
@@ -9,27 +10,45 @@ public class Tile {
     private String name;
     private BufferedImage image;
     private boolean collision = false;
-    private int tileWidth = GamePanel.ORGINAL_TILE_SIZE;
-    private int tileHeight = GamePanel.ORGINAL_TILE_SIZE;
+    private int originalTileWidth = GamePanel.ORGINAL_TILE_SIZE;
+    private int originalTileHeight = GamePanel.ORGINAL_TILE_SIZE;
+    private Rectangle collisionArea;
+    private int collisionHeight;
+    private int collisionWidth;
 
-    public int getTileWidth() {
-        return tileWidth;
+    private int collisionXOffset = 0;
+    private int collisionYOffset = 0;
+
+    public int getOriginalTileWidth() {
+        return originalTileWidth;
     }
 
-    public void setTileWidth(int tileWidth) {
-        this.tileWidth = tileWidth;
+    public void setOriginalTileWidth(int originalTileWidth) {
+        this.originalTileWidth = originalTileWidth;
     }
 
-    public int getTileHeight() {
-        return tileHeight;
+    public int getOriginalTileHeight() {
+        return originalTileHeight;
     }
 
-    public void setTileHeight(int tileHeight) {
-        this.tileHeight = tileHeight;
+    public void setOriginalTileHeight(int originalTileHeight) {
+        this.originalTileHeight = originalTileHeight;
+    }
+
+    public int getModifiedTileHeight() {
+        return originalTileHeight * GamePanel.SCALE;
+    }
+
+    public int getModifiedTileWidth() {
+        return originalTileWidth * GamePanel.SCALE;
     }
 
     public void setCollision(boolean collision) {
         this.collision = collision;
+    }
+
+    public boolean isCollision() {
+        return collision;
     }
 
     public void setImage(BufferedImage image) {
@@ -50,4 +69,43 @@ public class Tile {
     }
 
 
+    public Rectangle getCollisionArea() {
+        return collisionArea;
+    }
+
+    public void setCollisionArea(Rectangle collisionArea) {
+        this.collisionArea = collisionArea;
+    }
+
+    public int getCollisionHeight() {
+        return collisionHeight;
+    }
+
+    public void setCollisionHeight(int collisionHeight) {
+        this.collisionHeight = collisionHeight * GamePanel.SCALE;
+    }
+
+    public int getCollisionWidth() {
+        return collisionWidth;
+    }
+
+    public void setCollisionWidth(int collisionWidth) {
+        this.collisionWidth = collisionWidth * GamePanel.SCALE;
+    }
+
+    public int getCollisionXOffset() {
+        return collisionXOffset;
+    }
+
+    public void setCollisionXOffset(int collisionXOffset) {
+        this.collisionXOffset = collisionXOffset * GamePanel.SCALE;
+    }
+
+    public int getCollisionYOffset() {
+        return collisionYOffset;
+    }
+
+    public void setCollisionYOffset(int collisionYOffset) {
+        this.collisionYOffset = collisionYOffset * GamePanel.SCALE;
+    }
 }

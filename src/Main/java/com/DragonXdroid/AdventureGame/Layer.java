@@ -1,7 +1,6 @@
 package com.DragonXdroid.AdventureGame;
 
 import com.DragonXdroid.AdventureGame.Tiles.Tile;
-import com.DragonXdroid.AdventureGame.Tiles.TileIndexMap;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 
@@ -9,23 +8,21 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class Layer {
 
-    private Map<Integer, Tile> tileIndexMap;
-    private String dataPath;
-    private String name;
-    private Boolean isComplex;
-
+    private final TileRenderer renderer;
+    private final String dataPath;
+    private final String name;
+    private final Boolean isComplex;
     private List<List<Tile>> data = new ArrayList<>();
 
     public Layer(String dataPath) {
         this.dataPath = dataPath;
         this.name = dataPath.substring(dataPath.lastIndexOf('_') + 1, dataPath.lastIndexOf('.'));
-        setTileIndexMap();
+        this.renderer = TileRenderer.getTileRenderer(name);
+        this.isComplex = renderer.getTile(0).getOriginalTileHeight() > 16 || renderer.getTile(0).getOriginalTileWidth() > 16;
         loadLayerData();
-        setComplex();
     }
 
     public void loadLayerData() {
@@ -47,22 +44,10 @@ public class Layer {
         List<Tile> tileList = new ArrayList<>();
 
         for (String str : line) {
-            tileList.add(Integer.parseInt(str) == -1 ? null : tileIndexMap.get(Integer.parseInt(str)));
+            tileList.add(Integer.parseInt(str) == -1 ? null : renderer.getTile(Integer.parseInt(str)));
         }
 
         return tileList;
-    }
-
-    public void setTileIndexMap() {
-        switch (name) {
-            case "Grass" -> tileIndexMap = TileIndexMap.GRASS.tileIndexMap;
-            case "Cliff" -> tileIndexMap = TileIndexMap.CLIFF.tileIndexMap;
-            case "Trees" -> tileIndexMap = TileIndexMap.TREES.tileIndexMap;
-        }
-    }
-
-    public void setComplex( ) {
-        isComplex = tileIndexMap.get(0).getTileHeight() > 16 || tileIndexMap.get(0).getTileWidth() > 16;
     }
 
     public Boolean isComplex() {

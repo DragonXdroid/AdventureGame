@@ -1,5 +1,7 @@
 package com.DragonXdroid.AdventureGame.Tiles;
 
+import com.DragonXdroid.AdventureGame.GamePanel;
+
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
@@ -13,9 +15,13 @@ public class SmallOakTree extends ComplexTile {
             throw new RuntimeException(e);
         }
 
-        setCollision(false);
-        setTileWidth(32);
-        setTileHeight(42);
+        setCollision(true);
+        setOriginalTileWidth(32);
+        setOriginalTileHeight(42);
+        setCollisionHeight(12);
+        setCollisionWidth(8);
+        setCollisionYOffset(30);
+        setCollisionXOffset(11);
         setName("SmallOakTree");
     }
 

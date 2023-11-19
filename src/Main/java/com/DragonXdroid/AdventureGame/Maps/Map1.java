@@ -22,6 +22,7 @@ public class Map1 {
          for (File file : CSVFolder.listFiles()) {
              System.out.println(file.getPath());
              mapData.add(new Layer(file.getPath()));
+             System.out.println(mapData.get(0).getData());
 
          }
      }
